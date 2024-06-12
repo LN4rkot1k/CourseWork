@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование квартиры</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="text-dark form-container">
+      <div class="container mt-5">
+        <h1>Бронирование квартиры</h1>
+        <form action="/book" method="POST">
+          <input type="hidden" name="apartmentId" value="{{apartmentId}}">
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" pattern="[a-zA-Z\s]+" inputmode="text" maxlength="30" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Номер телефона 8(***)</label>
+            <input type="tel" pattern="[0-9]*" inputmode="numeric" maxlength="11" class="form-control" id="phone" name="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Почта</label>
+            <input type="email" class="form-control" id="email" name="email" maxlength="100" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+          <a href="/apartments" class="btn btn-primary">Вернуться назад</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

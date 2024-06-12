@@ -1,0 +1,16 @@
+-- database: c:\Users\mazgu\Desktop\course-site\website\db\database.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+-- Создание таблицы
+CREATE TABLE news (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  image_url TEXT
+);
+
+-- Вставка данных с изображениями
+INSERT INTO news (title, content, image_url) VALUES ('Новость 1', 'Полное содержание новости 1', 'public/image1.jpg');
+INSERT INTO news (title, content, image_url) VALUES ('Новость 2', 'Полное содержание новости 2', 'public/image2.jpg');
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Квартир</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Каталог Квартир</h1>
+        <form id="filterForm" method="GET" action="/apartments">
+            <div class="input-group search-bar mb-4">
+                <select id="resaleOrNewSelect" class="form-select" name="resaleOrNew">
+                    <option value="all" {{#if selectedFilters.isAllResaleOrNew}}selected{{/if}}>Новостройка/Вторичка</option>
+                    {{#each resaleOrNewOptions}}
+                    <option value="{{this.resaleOrNew}}" {{#if this.isSelected}}selected{{/if}}>{{this.resaleOrNew}}</option>
+                    {{/each}}
+                </select>
+                <select id="roomsSelect" class="form-select" name="rooms">
+                    <option value="all" {{#if selectedFilters.isAllRooms}}selected{{/if}}>Количество комнат</option>
+                    {{#each roomsOptions}}
+                    <option value="{{this.rooms}}" {{#if this.isSelected}}selected{{/if}}>{{this.rooms}} комн.</option>
+                    {{/each}}
+                </select>
+                <select id="priceSelect" class="form-select" name="price">
+                    <option value="all" {{#if selectedFilters.isAllPrice}}selected{{/if}}>Цена</option>
+                    {{#each priceOptions}}
+                    <option value="{{this.value}}" {{#if this.isSelected}}selected{{/if}}>{{this.label}}</option>
+                    {{/each}}
+                </select>
+                <select id="districtSelect" class="form-select" name="district">
+                    <option value="all" {{#if selectedFilters.isAllDistrict}}selected{{/if}}>Район</option>
+                    {{#each districtOptions}}
+                    <option value="{{this.district}}" {{#if this.isSelected}}selected{{/if}}>{{this.district}}</option>
+                    {{/each}}
+                </select>
+                <button class="btn btn-primary" type="submit">Найти</button>
+            </div>
+        </form>
+    <div class="row" id="apartmentsList">
+      {{#each apartments}}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{this.image_url}}" class="card-img-top" alt="Квартира {{this.id}}">
+          <div class="card-body">
+            <p class="card-text">Адрес: {{this.address}}</p>
+            <p class="card-text">Тип квартиры: {{this.resaleOrNew}}</p>
+            <p class="card-text">Количество комнат: {{this.rooms}}</p>
+            <p class="card-text">Общая площадь: {{this.total_area}} м²</p>
+            <p class="card-text">Район: {{this.district}}</p>
+            <p class="card-text">Этаж: {{this.floors}}</p>
+            <p class="card-text">Цена: {{this.price}} руб.</p>
+            <a href="/apartments/{{this.id}}" class="btn btn-primary">Подробнее</a>
+            <a href="/" class="btn btn-primary">Вернуться назад</a>
+            {{#if this.isBooked}}
+            <button class="btn btn-secondary" disabled>Квартира забронирована</button>
+            {{else}}
+            <a href="/book/{{this.id}}" class="btn btn-primary">Забронировать квартиру</a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

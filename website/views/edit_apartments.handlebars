@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование квартир</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row" id="apartmentsList">
+        {{#each apartments}}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+            <img src="{{this.image_url}}" class="card-img-top" alt="Квартира {{this.id}}">
+            <div class="card-body">
+                <p class="card-text">Адрес: {{this.address}}</p>
+                <p class="card-text">Тип квартиры: {{this.resaleOrNew}}</p>
+                <p class="card-text">Количество комнат: {{this.rooms}}</p>
+                <p class="card-text">Общая площадь: {{this.total_area}} м²</p>
+                <p class="card-text">Район: {{this.district}}</p>
+                <p class="card-text">Этаж: {{this.floors}}</p>
+                <p class="card-text">Цена: {{this.price}} руб.</p>
+                <div class="d-flex">
+                  <form action="/admin/delete_apartment" method="POST" class="mr-2">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    {{#if this.isBooked}}
+                      <button type="submit" class="btn btn-danger" disabled>Удалить квартиру</button>
+                    {{else}}
+                      <button type="submit" class="btn btn-danger">Удалить квартиру</button>
+                    {{/if}}
+                  </form>
+                  {{#if this.isBooked}}
+                  <form action="/admin/unbook" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="hidden" name="apartmentId" value="{{this.id}}">
+                    <button type="submit" class="btn btn-warning">Снять бронирование</button>
+                  </form>
+                  {{/if}}
+                </div>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+        </div>
+    </div>
+
+    <div class="container mt-5">
+          <h2>Добавить новую квартиру</h2>
+      <form action="/admin/add_apartment" method="POST">
+        <div class="form-contain">
+          <div class="form-gro">
+            <label for="image_url" class="form-label">URL изображения(/assets/apart(1-9).jpg)</label>
+            <input type="text" class="form-control" id="image_url" name="image_url">
+          </div>
+          <div class="form-gro">
+            <label for="resaleOrNew" class="form-label">Тип квартиры</label>
+            <select id="resaleOrNewSelect" class="form-select" name="resaleOrNew">
+            <option value="Новостройка">Квартира в новостройке</option>
+            <option value="Вторичное жилье">Квартира во вторичке</option>
+          </select>
+          </div>
+          <div class="form-gro">
+            <label for="district" class="form-label">Адрес квартиры</label>
+            <input type="text" class="form-control" id="address" name="address" pattern="[A-Za-zА-Яа-яЁё0-9\s,]+" title="Используйте только буквы и цифры" required>
+          </div>
+          <div class="form-gro">
+            <label for="rooms" class="form-label">Комнаты</label>
+            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="rooms" name="rooms" required>
+          </div>
+          <div class="form-gro">
+            <label for="total_area" class="form-label">Общая площадь</label>
+            <input type="number" pattern="[0-9]*" inputmode="numeric" maxlength="3" class="form-control" id="total_area" name="total_area" required>
+          </div>
+          <div class="form-gro">
+            <label for="district" class="form-label">Район</label>
+            <input type="text" class="form-control" id="district" pattern="[A-Za-zА-Яа-яЁё\s-]+" title="Используйте только буквы" name="district" required>
+          </div>
+          <div class="form-gro">
+            <label for="floors" class="form-label">Этаж</label>
+            <input type="number" pattern="[0-9]*" inputmode="numeric" maxlength="2" class="form-control" id="floors" name="floors" required>
+          </div>
+          <div class="form-gro">
+            <label for="price" class="form-label">Цена</label>
+            <input type="number" pattern="[0-9]*" inputmode="numeric" maxlength="10" class="form-control" id="price" name="price" required>
+          </div>
+            <div class="form-gro">
+            <label for="content" class="form-label">Описание</label>
+            <textarea class="form-control" id="content" name="content" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Добавить квартиру</button>
+        <a href="/admin" class="btn btn-primary mt-3">Вернуться назад</a>
+      </form>
+    </div>
+</body>
+</html>

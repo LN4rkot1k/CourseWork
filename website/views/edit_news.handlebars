@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование новостей</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Редактирование новостей</h1>
+    <h2>Список новостей</h2>
+    <div class="container text-center py-5">
+        <h1 class="mb-4">НОВОСТИ</h1>
+        <p class="mb-5">Интересные статьи о недвижимости собраны для Вас!</p>
+        <div class="row">
+            {{#each news}}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{this.image_url}}" class="card-img-top" alt="Новость">
+                    <div class="card-body">
+                        <p class="card-text">{{this.content}}</p>
+                        {{!-- <a href="/news/{{this.id}}" class="btn btn-primary">Читать далее</a> --}}
+                        <form action="/admin/delete_news" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <h2>Добавить новость</h2>
+    <form action="/admin/add_news" method="POST">
+      <div class="mb-3">
+        <label for="content" class="form-label">Заголовок</label>
+        <textarea class="form-control" id="content" name="content" maxlength="2000" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="content" class="form-label">Контент</label>
+        <textarea class="form-control" id="full_content" name="full_content" maxlength="2000" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image_url" class="form-label">Картинка</label>  
+        <input type="text" class="form-control" id="image_url" name="image_url" maxlength="50" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить новость</button>
+      <a href="/admin" class="btn btn-primary">Вернуться назад</a>
+    </form>
+  </div>
+</body>
+</html>

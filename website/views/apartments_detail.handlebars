@@ -1,0 +1,20 @@
+  <div class="container centered-container mt-5">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img src="{{apartments.image_url}}" class="img-size card-img-top" alt="{{apartments.title}}">
+        <div class="card-body">
+          <p class="card-text">Адрес: {{apartments.address}}</p>
+          <p class="card-text">Тип квартиры: {{apartments.resaleOrNew}}</p>
+          <p class="card-text">Количество комнат: {{apartments.rooms}}</p>
+          <p class="card-text">Общая площадь: {{apartments.total_area}} м²</p>
+          <p class="card-text">Район: {{apartments.district}}</p>
+          <p class="card-text">Этаж: {{apartments.floors}}</p>
+          <p class="card-text">Цена: {{apartments.price}} руб.</p>
+          <p class="card-text">Описание: {{apartments.content}}</p>
+          <a href="/apartments" class="btn btn-secondary">К списку квартир</a>
+          <a href="/#apart" class="btn btn-secondary">Вернуться на главную</a>
+        </div>
+      </div>
+    </div>
+  </div>
+

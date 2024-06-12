@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APART HUB</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+  <header class="text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <nav class="nav">
+            <a class="nav-link text-white" href="#about">О квартирах</a>
+            <a class="nav-link text-white" href="#news">Новости</a>
+            <a class="nav-link text-white" href="#contact">Контакты</a>
+        </nav>
+        <a class="btn btn-light" href="#appointment">Записаться на просмотр</a>
+    </div>
+</header>
+  
+  <section class="hero-section">
+    <div class="hero-content text-center">
+      <img src="assets/LOGO.png" alt="Logo" class="mb-4" style="width: 250px; height: auto;">
+      <h2>Если недвижимость, то APART HUB</h2>
+      <form class="d-flex justify-content-center my-4">
+        <div class="input-group search-bar">
+          <select class="form-select">
+            <option selected>Квартиру в новостройке и вторичке</option>
+            <option value="1">Квартира в новостройке</option>
+            <option value="2">Квартира во вторичке</option>
+          </select>
+          <select class="form-select">
+            <option selected>1, 2 комн.</option>
+            <option value="1">1 комн.</option>
+            <option value="2">2 комн.</option>
+            <option value="3">3 комн.</option>
+          </select>
+          <select class="form-select">
+            <option selected>Цена</option>
+            <option value="1">до 3 млн</option>
+            <option value="2">3-5 млн</option>
+            <option value="3">5-10 млн</option>
+          </select>
+          <input type="text" class="form-control" placeholder="Город, адрес, метро, район, ж/д, шоссе или ЖК">
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <div class="container my-5">
+    <h2 class="text-center">Акции и скидки</h2>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Росподдержка</h5>
+                    <p class="card-text">Ипотека с господдержкой на новостройки</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн ₽</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">ВТБ</h5>
+                    <p class="card-text">Льготная ипотека 8%</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Абсолютбанк</h5>
+                    <p class="card-text">Льготная ипотека 7.59%</p>
+                    <p>Ставка: 7.59%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 50%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Росбанк</h5>
+                    <p class="card-text">Льготная ипотека 8%</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Банк ДОМ.РФ</h5>
+                    <p class="card-text">Квартира в новостройке</p>
+                    <p>Ставка: 15%</p>
+                    <p>Сумма: До 50 млн</p>
+                    <p>Мин. взнос: От 15%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Россельхозбанк</h5>
+                    <p class="card-text">Ипотека для работников IT-организаций</p>
+                    <p>Ставка: 5%</p>
+                    <p>Сумма: До 18 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="zigzag-background container-fluid my-5 last-offers-block">
+        <h2 class="text-center">Последние предложения</h2>
+        <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-wrap="true">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/1home.png" class="card-img-top" alt="House 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">750 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 65 м²<br>Участок - 8 сот.<br>Этажей в доме - 2<br>Год постройки - 2003</p>
+                                    <a href="/news" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/2home.png" class="card-img-top" alt="House 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">999 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 50 м²<br>Участок - 6.5 сот.<br>Этажей в доме - 2<br>Год постройки - 2001</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/3home.png" class="card-img-top" alt="House 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">2 499 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 209 м²<br>Участок - 5.25 сот.<br>Материал дома - Кирпичный<br>Этажей в доме - 2</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/4home.png" class="card-img-top" alt="House 4">
+                                <div class="card-body">
+                                    <h5 class="card-title">1 400 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 110 м²<br>Участок - 5 сот.<br>Материал дома - Кирпичный<br>Этажей в доме - 2</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/5home.png" class="card-img-top" alt="House 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">850 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 70 м²<br>Участок - 10 сот.<br>Этажей в доме - 1<br>Год постройки - 2010</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/6home.png" class="card-img-top" alt="House 6">
+                                <div class="card-body">
+                                    <h5 class="card-title">1 200 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 80 м²<br>Участок - 12 сот.<br>Этажей в доме - 1<br>Год постройки - 2000</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/1home.png" class="card-img-top" alt="House 7">
+                                <div class="card-body">
+                                    <h5 class="card-title">1 750 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 120 м²<br>Участок - 6 сот.<br>Материал дома - Деревянный<br>Этажей в доме - 2</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100">
+                                <img src="assets/2home.png" class="card-img-top" alt="House 8">
+                                <div class="card-body">
+                                    <h5 class="card-title">2 000 000 ₽</h5>
+                                    <p class="card-text">Общая площадь - 150 м²<br>Участок - 8 сот.<br>Материал дома - Кирпичный<br>Этажей в доме - 2</p>
+                                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="container text-center py-5">
+      <h1 class="mb-4">Профи в сфере недвижимости</h1>
+      <p class="mb-5">Каждый из них найдет для вас лучшее предложение.</p>
+      <div class="row">
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/ded_oleg.jpg" class="card-img-top" alt="Виктор Паль">
+                  <div class="card-body">
+                      <h5 class="card-title">Виктор Паль</h5>
+                      <p class="card-text">Коммерческая, жилая недвижимость</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/janna.jpg" class="card-img-top" alt="Жанна Д'Ярк">
+                  <div class="card-body">
+                      <h5 class="card-title">Жанна Д'Ярк</h5>
+                      <p class="card-text">Жилая недвижимость</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/3.jpg" class="card-img-top" alt="Юлия Пуджман">
+                  <div class="card-body">
+                      <h5 class="card-title">Юлия Пуджман</h5>
+                      <p class="card-text">Промышленная недвижимость</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/4.jpg" class="card-img-top" alt="Давид Исмаг">
+                  <div class="card-body">
+                      <h5 class="card-title">Давид Исмаг</h5>
+                      <p class="card-text">Загородная недвижимость и области</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container text-center py-5">
+    <h1 class="mb-4">НОВОСТИ</h1>
+    <p class="mb-5">Интересные статьи о недвижимости собраны для Вас!</p>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news1.svg" class="card-img-top" alt="Новость 1">
+                <div class="card-body">
+                    <p class="card-text">Семейная ипотека станет недоступной для большинства заемщиков</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news2.svg" class="card-img-top" alt="Новость 2">
+                <div class="card-body">
+                    <p class="card-text">Парки стали важнейшим фактором при выборе нового жилья</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news3.svg" class="card-img-top" alt="Новость 3">
+                <div class="card-body">
+                    <p class="card-text">Москвичи рассказали, какую часть дохода готовы тратить на аренду</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news4.svg" class="card-img-top" alt="Новость 4">
+                <div class="card-body">
+                    <p class="card-text">ВТБ предложил ввести дифференцированные ставки по семейной ипотеке</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news5.svg" class="card-img-top" alt="Новость 5">
+                <div class="card-body">
+                    <p class="card-text">Аналитики составили портрет ипотечного заемщика</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="assets/news6.svg" class="card-img-top" alt="Новость 6">
+                <div class="card-body">
+                    <p class="card-text">В Москве ограничили строительство «однушек» и студий площадью менее 28 квадратов</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center py-5">
+  <h1 class="mb-4">APART HUB ЭТО:</h1>
+  <div class="row">
+      <div class="col-md-4 mb-4">
+          <div class="card bg-dark text-white">
+              <img src="assets/aphub1.svg" class="card-img-nad" alt="Надежность">
+              <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <h5 class="card-title">Надежность</h5>
+                  <p class="card-text-1">Работаем только с добросовестными риэлторами</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 mb-4">
+          <div class="card bg-primary text-white">
+            <img src="assets/mainBG.jpg" alt="">
+              <div class="card-body d-flex flex-column justify-content-center bg-dark">
+                  <h5 class="card-title">Гарантии</h5>
+                  <p class="card-text-1">Рядом Можайское шоссе. Метро Молодежная в 20 минутах ходьбы от комплекса</p>
+              </div>
+          </div>
+          <div class="card bg-primary text-white mt-4">
+            <img src="assets//bigsotr.jpg" alt="">
+              <div class="card-body d-flex flex-column justify-content-center bg-dark">
+                  <h5 class="card-title">Большой штаб сотрудников</h5>
+                  <p class="card-text-1">В нашу команду попадают одни из лучших сотрудников на рынке недвижимости с опытом не менее 5 лет</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 mb-4">
+          <div class="card bg-dark text-white">
+              <img src="assets/aphub3.svg" class="card-img" alt="Опыт">
+              <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <h5 class="card-title">Опыт</h5>
+                  <p class="card-text-1">Более 10 лет на рынке недвижимости и 1000+ счастливых обладателей жилья</p>
+              </div>
+          </div>
+          <div class="card bg-dark text-white mt-4">
+              <img src="assets/hapy.jpg" class="card-img" alt="Довольные клиенты">
+              <div class="card-img-overlay d-flex flex-column justify-content-end">
+                  <h5 class="card-title">Довольные клиенты</h5>
+                  <p class="card-text-1">Быстрая и надежная работа сотрудников не оставляет клиентов огорченными</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container-fluid d-flex align-items-center justify-content-center min-vh-100 bg-overlay">
+    <div class="text-center text-white form-container">
+      <h2>НЕДВИЖИМОСТЬ В ШАГЕ ОТ ВАС</h2>
+      <p>Просто оформите заявку и мы свяжемся с вами!</p>
+      <form action="/submit" method="post">
+        <div class="mb-3">
+          <input type="email" class="form-control" name="email" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control" name="phone" placeholder="Номер телефона" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" name="name" placeholder="Имя" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Отправить!</button>
+      </form>
+      <p class="mt-3">Убедитесь, что ознакомились с политикой конфиденциальности!</p>
+    </div>
+  </div>
+
+<footer class="text-white py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+              <h5>Apart Hub</h5>
+          </div>
+          <div class="col-md-6">
+              <ul class="nav justify-content-md-end">
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Акции</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Каталог</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Штат</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Контакты</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Политика</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Новости</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="#">Почта</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

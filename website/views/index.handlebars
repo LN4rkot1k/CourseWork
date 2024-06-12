@@ -1,0 +1,282 @@
+  <section class="hero-section">
+    <div class="hero-content text-center">
+      <img src="assets/LOGO.png" alt="Logo" class="mb-4" style="width: 250px; height: auto;">
+      <h2>Если недвижимость, то APART HUB</h2>
+      <form class="d-flex justify-content-center my-4">
+        <a href="/apartments" class="btn btn-light">Просмотреть квартиры</a>
+        {{!-- <div class="input-group search-bar">
+          <select class="form-select">
+            <option selected>Квартиру в новостройке и вторичке</option>
+            <option value="1">Квартира в новостройке</option>
+            <option value="2">Квартира во вторичке</option>
+          </select>
+          <select class="form-select">
+            <option selected>1, 2 комн.</option>
+            <option value="1">1 комн.</option>
+            <option value="2">2 комн.</option>
+            <option value="3">3 комн.</option>
+          </select>
+          <select class="form-select">
+            <option selected>Цена</option>
+            <option value="1">до 3 млн</option>
+            <option value="2">3-5 млн</option>
+            <option value="3">5-10 млн</option>
+          </select>
+          <input type="text" class="form-control" placeholder="Город, адрес, метро, район, ж/д, шоссе или ЖК"> --}}
+        </div>
+      </form>
+    </div>
+  </section>
+  
+<div class="container my-5">
+    <h2 class="text-center">Акции и скидки</h2>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Росподдержка</h5>
+                    <p class="card-text">Ипотека с господдержкой на новостройки</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн ₽</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">ВТБ</h5>
+                    <p class="card-text">Льготная ипотека 8%</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Абсолютбанк</h5>
+                    <p class="card-text">Льготная ипотека 7.59%</p>
+                    <p>Ставка: 7.59%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 50%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Росбанк</h5>
+                    <p class="card-text">Льготная ипотека 8%</p>
+                    <p>Ставка: 8%</p>
+                    <p>Сумма: До 6 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Банк ДОМ.РФ</h5>
+                    <p class="card-text">Квартира в новостройке</p>
+                    <p>Ставка: 15%</p>
+                    <p>Сумма: До 50 млн</p>
+                    <p>Мин. взнос: От 15%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Россельхозбанк</h5>
+                    <p class="card-text">Ипотека для работников IT-организаций</p>
+                    <p>Ставка: 5%</p>
+                    <p>Сумма: До 18 млн</p>
+                    <p>Мин. взнос: От 30%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="zigzag-background container-fluid my-5 last-offers-block">
+    <h1 class="offer text-center" id="apart">Последние предложения</h1>
+    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-wrap="true">
+<div class="carousel-inner">
+    {{#each (group apartments 3) as |group index|}}
+    <div class="carousel-item {{#if @first}}active{{/if}}">
+        <div class="row justify-content-center">
+            {{#each group}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <a href="/apartments/{{this.id}}" class="card-link" title="Просмотреть квартиру">
+                    <div class="card h-100 fixed-size-card">
+                        <img src="{{this.image_url}}" class="card-img-top" alt="House">
+                </a>
+                        <div class="card-body">
+                            <h5 class="card-title">Цена: {{this.price}} рублей.</h5>
+                            <p class="card-text">Адрес: {{this.address}}</p>
+                            <p class="card-text">Тип квартиры: {{this.resaleOrNew}}.</p>
+                            <p class="card-text">Количество комнат: {{this.rooms}}.</p>
+                            <p class="card-text">Общая площадь: {{this.total_area}} м.</p>
+                            <p class="card-text">Район: {{this.district}}.</p>
+                            <p class="card-text">Этаж: {{this.floors}}.</p>
+                            {{!-- <a href="/apartments" class="btn btn-primary">Оставить заявку</a> --}}
+                        </div>
+                    </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+        <div class="carousel-buttons">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container text-center py-5">
+      <h1 class="mb-4">Наши риелторы</h1>
+      <p class="mb-5">Каждый из них найдет для вас лучшее предложение.</p>
+      <div class="row">
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/ded_oleg.jpg" class="card-img-top" alt="Виктор Паль">
+                  <div class="card-body">
+                      <h5 class="card-title">Виктор Паль</h5>
+                      <p class="card-text">Коммерческая, жилая недвижимость</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/janna.jpg" class="card-img-top" alt="Жанна Д'Ярк">
+                  <div class="card-body">
+                      <h5 class="card-title">Жанна Д'Ярк</h5>
+                      <p class="card-text">Большой опыт в продаже жилой недвижимости</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/3.jpg" class="card-img-top" alt="Юлия Пуджман">
+                  <div class="card-body">
+                      <h5 class="card-title">Юлия Пуджман</h5>
+                      <p class="card-text">Активно взаимодействует с промышленной недвижимостью</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <img src="assets/4.jpg" class="card-img-top" alt="Давид Исмаг">
+                  <div class="card-body">
+                      <h5 class="card-title">Давид Исмаг</h5>
+                      <p class="card-text">Загородная недвижимость и области</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container text-center py-5">
+    <h1 class="mb-4" id="news">НОВОСТИ</h1>
+    <p class="mb-5">Интересные статьи о недвижимости собраны для Вас!</p>
+    <div class="row">
+        {{#each news}}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{this.image_url}}" class="card-img-top" alt="Новость">
+                <div class="card-body">
+                    <p class="card-text">{{this.content}}</p>
+                    <a href="/news/{{this.id}}" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+  </div>
+
+<div class="container text-center py-5">
+  <h1 class="mb-4">APART HUB ЭТО:</h1>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+            <div class="info-container">
+            <img src="assets/aphub1.jpg" alt="Image 1">
+            <div class="info-title">
+                <h2>Надежность</h2>
+            </div>
+            <div class="info-content">
+                <h2>Работаем только с добросовестными риэлторами</h2>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="info-container">
+            <img src="assets/aphub2.jpg" alt="Image 1">
+            <div class="info-title">
+                <h2>Большой штаб сотрудников</h2>
+            </div>
+            <div class="info-content">
+                <h2>В нашей команде лучшие сотрудники на рынке недвижимости с опытом не менее 5 лет</h2>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+            <div class="info-container">
+            <img src="assets/aphub3.jpg" alt="Image 1">
+            <div class="info-title">
+                <h2>Опыт</h2>
+            </div>
+            <div class="info-content">
+                <h2>Более 10 лет на рынке недвижимости и 1000+ счастливых обладателей жилья</h2>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="info-container">
+            <img src="assets/aphub5.jpg" alt="Image 1">
+            <div class="info-title">
+                <h2>Довольные клиенты</h2>
+            </div>
+            <div class="info-content">
+                <h2>Быстрая и надежная работа сотрудников не оставляет клиентов огорченными</h2>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex align-items-center justify-content-center min-vh-100 bg-overlay">
+    <div class="text-center text-white form-container" id="appointment">
+      <h2>НЕДВИЖИМОСТЬ В ШАГЕ ОТ ВАС</h2>
+      <p>Просто оформите заявку и мы свяжемся с вами!</p>
+      <form action="/submit" method="post">
+        <div class="mb-3">
+          <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="100" name="email" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+          <input type="tel" pattern="[0-9]*" inputmode="numeric" maxlength="11" class="form-control" name="phone" placeholder="Ваш номер телефона 8(***)" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" pattern="[a-zA-Z\s]+" inputmode="text" class="form-control" name="name" placeholder="Ваше полное имя" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Отправить!</button>
+      </form>
+      <p class="mt-3">Убедитесь, что ознакомились с политикой конфиденциальности!</p>
+    </div>
+  </div>
+

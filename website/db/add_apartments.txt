@@ -1,0 +1,22 @@
+-- database: c:\Users\mazgu\Desktop\course-site\website\db\database.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+CREATE TABLE IF NOT EXISTS apartments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    is_new_building BOOLEAN,
+    is_resale BOOLEAN,
+    rooms INTEGER,
+    total_area REAL,
+    district TEXT,
+    floors INTEGER,
+    price REAL
+);
+
+INSERT INTO apartments (is_new_building, is_resale, rooms, total_area, district, floors, price)
+VALUES 
+(true, false, 1, 35.0, 'Курчатовский', 5, 2500000),
+(false, true, 3, 60.0, 'Ленинский', 3, 4000000),
+(true, false, 2, 20.0, 'ЧТЗ', 4, 1500000),
+(false, true, 4, 80.0, 'Нютон', 10, 10000000),
+(true, false, 3, 90.0, 'Октябрьский', 7, 8500000);

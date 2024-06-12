@@ -1,0 +1,17 @@
+  <div class="container mt-5">
+    <h1>Новости</h1>
+    <div class="row">
+      {{#each news}}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="{{this.imageUrl}}" class="card-img-top" alt="{{this.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.content}}</p>
+            <a href="/news/{{this.id}}" class="btn btn-primary">Читать далее</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
